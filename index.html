@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+  <script src="tiresize.js"></script>
+  <meta name="description" content="This calculates the difference in diameter and speed error that will be produced using different tire sizes.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta charset="utf-8">
+  <!-- CONFIGURATION -->
+  
+  <!-- Allow web app to be run in full-screen mode. -->
+  <meta name="apple-mobile-web-app-capable"
+  content="yes">
+  
+  <!-- Make the app title different than the page title. -->
+  <meta name="apple-mobile-web-app-title"
+  content="Tire Size">
+  
+  <!-- Configure the status bar. -->
+  <meta name="apple-mobile-web-app-status-bar-style"
+  content="translucent">
+  
+  <!-- Set the viewport. -->
+  
+  <!-- Disable automatic phone number detection. -->
+  <meta name="format-detection"
+  content="telephone=no">
+  
+  <link href="http://iconifier.net/iconified/20150218181224_Screen%20Shot%202015-02-18%20at%206.11.19%20PM/apple-touch-icon-152x152.png"
+  sizes="152x152"
+  rel="apple-touch-icon-precomposed">
+  
+  <title>tiresize.cf</title>
+</head>
+<body ng-app="jsbin">
+  
+  <form ng-controller="TireCtrl as tire">
+    
+    <fieldset>
+      <legend>Original Tire</legend>
+      <input type="tel" placeholder="185" maxlength="3" width="30" ng-model="tire.width1" class="first-input">
+      <input type="tel" placeholder="70" maxlength="2" width="30" ng-model="tire.ratio1" class="second-input">
+      <input type="tel" placeholder="14" maxlength="2" width="30" ng-model="tire.height1" class="third-input">
+    </fieldset>
+    <br>
+    <fieldset>
+      <legend>New Tire</legend>
+      <input type="tel" placeholder="195" maxlength="3" width="30" ng-model="tire.width2" class="fourth-input">
+      <input type="tel" placeholder="50" maxlength="2" width="30" ng-model="tire.ratio2" class="fifth-input">
+      <input type="tel" placeholder="15" maxlength="2" width="30" ng-model="tire.height2" class="sixth-input">
+    </fieldset>
+    
+<!--     <fieldset>
+      <legend>Diameter Difference</legend>
+      <p><span ng-bind="tire.difference()" class="red"></span>%</p>
+    </fieldset>
+    
+    <fieldset>
+      <legend>Speed Difference</legend>
+      <p>When it shows  100kph, the actual speed will be <span ng-bind="tire.speed()" class="red"></span>kph</p>
+    </fieldset> -->
+    <br>
+    <fieldset ng-hide="tire.reveal()">
+      <legend>Results:</legend>
+      <label>None, enter some text</label>
+    </fieldset>
+    
+    <fieldset ng-show="tire.reveal()">
+      <legend>Diameter Difference:</legend>
+      <p ng-show="tire.difference()"><i>{{ tire.difference() }}%</i></p>
+    </fieldset>
+    
+    <fieldset ng-show="tire.reveal()">
+      <legend>Speed Difference:</legend>
+      <p>When it shows <i>100 km/h</i>, the actual speed will be <i>{{ tire.speed() }} km/h</i></p>
+    </fieldset>
+    <br>
+    <input type="submit" value="Reset" ng-click="tire.reset()">
+    
+  </form>
+  
+  <div id="filler">
+  </div>
+  
+</body>
+
+</html>
