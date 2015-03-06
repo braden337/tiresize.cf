@@ -17,7 +17,7 @@ Released under the MIT license: http://jsbin.mit-license.org
 <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
 <meta name="description" content="This calculates the difference in diameter and speed error that will be produced using different tire sizes.">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta charset="utf-8">
   <!-- CONFIGURATION -->
  
@@ -231,36 +231,7 @@ app.controller('TireCtrl', function() {
     
   };
   
-});
-
-
-
-
-
-
-
-
-
-
-
-
-document.ontouchmove = function (event) {
-    var isTouchMoveAllowed = false;
-    var p = event.target;
-
-    while (p != null) {
-        if (p.classList && p.classList.contains("touchMoveAllowed")) {
-            isTouchMoveAllowed = true;
-            break;
-        }
-        p = p.parentNode;
-    }
-
-    if (!isTouchMoveAllowed) {
-        event.preventDefault();
-    }
-
-};
+});
 
 
 
